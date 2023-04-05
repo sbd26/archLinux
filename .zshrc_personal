@@ -1,0 +1,61 @@
+alias gr='go run'
+alias gb='go build'
+alias pf='poweroff'
+alias cat='bat --theme=base16'
+alias p='cd ~/cp'
+alias t='cd ~/Tutorial'
+alias silicon='silicon --theme TwoDark --background #10111C '
+alias gpushm='git push -u origin master'
+alias lm='mysql -u root -p'
+alias pp="python3"
+alias rmall='rm *'
+alias rm='rm -f'
+alias ka='killall'
+alias ping='ping google.com'
+alias weather='tempy dhaka -u metric'
+alias fpg='flutter pub get'
+alias nv='neovide'
+alias history='history 0'
+alias tx='tmux -2'
+alias mpkg='makepkg -si'
+alias b='cd ..'
+alias ins='sudo pacman -S'
+alias rmv='sudo pacman -R'
+alias clr='clear'
+alias parui='paru -S'
+alias d='cd ~/Downloads'
+alias cfg='cd ~/.config'
+alias v='nvim'
+alias cd..='cd ..'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq);paru -c' #Cleanup orphaned packages
+alias clock='tty-clock -sct -C 4'
+alias cpu="ps axch -o cmd:15,%cpu --sort=-%cpu | head"
+alias df='df -h'
+alias e='exit'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias g='gotop'
+alias grep='grep --color=auto'
+alias l='exa -lahF --color=always --icons --sort=size --group-directories-first'
+alias ls='exa -lhF --color=always --icons --sort=size --group-directories-first'
+alias lst='exa -lahFT --color=always --icons --sort=size --group-directories-first'
+alias matrix='unimatrix -f -l ocCgGkS -s 96'
+alias mem="ps axch -o cmd:15,%mem --sort=-%mem | head"
+alias merge="xrdb -merge ~/.Xresources"
+alias mpv='devour mpv'
+alias mv='mv -i'
+alias pipes='pipes -R -t 1'
+alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" #Recent Installed Packages
+alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
+alias update='sudo pacman -Syyu'
+alias updatefonts='sudo fc-cache -fv'
+alias vlc='devour vlc'
+alias wget="wget -c" # continue the download
+alias rmd="rm -rf"
+alias cf='/usr/bin/firefox https://codeforces.com/contests'
+alias yt='/usr/bin/firefox https://www.youtube.com/'
+alias gpush='git push -u origin main'
+alias gcmt='git commit -m '
+alias gc='git clone'
+

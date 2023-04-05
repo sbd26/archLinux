@@ -1,0 +1,30 @@
+# Use custom format:
+format="$directory$git_branch$character"
+right_format = """$cmd_duration"""
+# Prompt symbols 
+[character]
+success_symbol = "[  ](#9ece6a bold)"
+error_symbol = "[ ](#db4b4b)"
+vicmd_symbol = "[  ](#9ece6a)"
+
+
+[cmd_duration]
+min_time = 1
+format = "[](fg:#1c252c bg:none)[$duration]($style)[](fg:#1c252c bg:#1c252c)[](fg:#5de4c7 bg:#1c252c)[ ](fg:#1c252c bg:#5de4c7)[](fg:#5de4c7  bg:none) "
+disabled = false
+style = "fg:#d9d7d6 bg:#1c252c"
+
+
+
+[directory]
+format = "[]($style)[[bd26 ⌘  ](fg:#c0caf5 bg:#292E42)$path](bg:#292E42 fg:#c0caf5)[ ]($style)"
+# style = "bg:#1a1b26 fg:#292E42"
+style = "bg:#10111C fg:#292E42"
+# style = "bg:#fdf6e3 fg:#292E42"
+
+[git_branch]
+format = "[]($style)[[ ](bg:#292E42 fg:#db4b4b)$branch](bg:#292E42 fg:#c0caf5)[]($style)"
+# style = "bg:#1a1b26 fg:#292E42"
+style = "bg:#10111C fg:#292E42"
+
+
