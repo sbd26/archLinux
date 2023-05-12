@@ -1,0 +1,243 @@
+set $mod Mod4
+set $alt Mod1
+
+#Font For i3status 
+font pango:FantasqueSansMono Nerd Font Bold 11
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+
+#Basic Setting 
+title_align center
+for_window [class=".*"] border pixel 2
+gaps outer     1
+gaps bottom    1
+gaps inner     4
+gaps top       30
+# smart_gaps on
+
+# class                 border  backgr. text    indicator real_border
+
+client.focused          #4385ea #4385ea #D8DEE9 #4385ea   #4385ea
+client.focused_inactive #61AFEF #61AFEF #2E3440 #a7c080   #10111c
+client.unfocused        #10111C #10111C #a7c080 #a7c080   #10111c
+client.urgent           #BF616A #BF616A #D8DEE9 #a7c080   #BF616A
+client.placeholder      #2E3440 #2E3440 #D8DEE9 #a7c080   #2E3440
+
+#NetWork Manager Applet
+# exec --no-startup-id nm-applet
+
+floating_modifier $mod
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+#KEYBINDING
+
+bindsym $mod+Return         exec xfce4-terminal
+bindsym $mod+shift+Return   exec alacritty
+bindsym $mod+shift+f        exec firefox
+
+bindsym $mod+q kill
+bindsym $mod+d exec --no-startup-id "rofi -show drun"
+
+#--FlameShot
+bindsym shift+Print exec flameshot full -p /home/bd26/Pictures/screenshots/
+bindsym Print exec flameshot gui
+
+#--Custom Links
+bindsym $mod+l exec "~/.config/i3/bin/link.sh"
+bindsym $mod+r mode "resize"
+
+#Thunar
+bindsym $mod+shift+t exec thunar
+
+
+#i3-Lock
+bindsym ctrl+shift+l exec i3lock -i ~/Pictures/OneDark/minimal/od_wave.png
+
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+# bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left   move  left
+bindsym $mod+Shift+Down   move  down
+bindsym $mod+Shift+Up     move  up
+bindsym $mod+Shift+Right  move  right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+u layout stacking
+bindsym $mod+a layout tabbed
+
+#Redo the workspace
+bindsym $mod+z layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# set $ws1 "1"
+# set $ws2 "2"
+# set $ws3 "3"
+# set $ws4 "4"
+# set $ws5 "5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws10 "10"
+
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9: "
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+mode "resize" {
+               bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+#Window Rule For Different Application
+assign [class="firefox"]              $ws1
+assign [class="Geany|Code"]           $ws1
+assign [class="Xfce4-terminal"]       $ws2
+assign [class="discord"]              $ws3
+assign [class="TelegramDesktop"]      $ws3
+assign [class="Caprine"]              $ws3
+assign [class="neovide"]              $ws3
+assign [class="dolphin"]              $ws4
+assign [class="haruna"]               $ws5
+assign [class="qBittorrent"]          $ws7
+assign [class="vlc"]                  $ws7
+
+for_window [class="Xfce4-terminal"] focus
+
+
+# Floating Application
+for_window [window_role="pop-up"]           floating        enable
+for_window [window_role="task_dialog"]      floating        enable
+for_window [class="zoom"]                   floating        enable
+for_window [class="Alafloat|Matplotlib"]    floating        enable
+for_window [class="Onboard|Yad"]            floating        enable
+for_window [class="feh|Viewnior|MPlayer"]   floating        enable
+for_window [class="Thunar"]                 floating        enable 
+# for_window [class="Alacritty"]              floating        enable 
+
+
+
+
+#Control Music
+bindsym ctrl+shift+Left   exec playerctl previous
+bindsym ctrl+shift+Right  exec playerctl next
+bindsym ctrl+shift+Down   exec playerctl pause
+bindsym ctrl+shift+Up     exec playerctl play
+
+
+# Use pactl to adjust volume in PulseAudio.
+bindsym ctrl+Up   exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym ctrl+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym ctrl+m    exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle # mute sound
+
+#Using Another Keybinding for PulseAudio
+bindsym F9  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym F10 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym F11 exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle # mute sound
+
+
+
+
+
+#Startup APplication
+exec_always "~/.config/i3/bin/autostart.sh"
+exec_always --no-startup-id nitrogen --restore
+exec_always --no-startup-id qbittorrent
+
+
+#bar
+# bar {
+#         colors {
+#         background #10111C
+#         statusline #00CED1
+#         separator  #00CED1
+#
+#
+# 	      #window		         #border #background #textcolor
+#         focused_workspace  #FF0  #303ae7    #fab666
+#         active_workspace   #333333 #5f676a 		#ffffff
+#         inactive_workspace #333333 #222222 		#888888
+#         urgent_workspace   #2f343a #900000 		#ffffff
+#         binding_mode       #2f343a #900000 		#ffffff
+#     }
+#         separator_symbol "|"
+#         position bottom
+#         status_command i3status -c ~/.config/i3/i3status.conf
+# }
