@@ -1,0 +1,49 @@
+#Pacman Related
+alias update='sudo pacman -Syyu'
+alias ins='sudo pacman -S'
+alias sync='sudo pacman -Syy'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq);yay -c' #Cleanup orphaned packages
+
+
+#Basic Alias
+alias l='exa -lahF --color=always --icons --sort=size --group-directories-first'
+alias ls='exa -lhF --color=always --icons --sort=size --group-directories-first'
+alias cd..='cd ..'
+alias rmd='rm -rf'
+alias cp='cp -r'
+alias wget="wget -c" # continue the download
+alias cat='bat'
+alias e='exit'
+alias clr='clear'
+alias pf='poweroff'
+
+
+#Directory
+alias b='cd ..'
+alias d='cd ~/Downloads'
+alias t='cd ~/Tutorial'
+alias cfg='cd ~/.config'
+alias cnv='cd ~/.config/nvim'
+alias ci='cd ~/.config/i3'
+
+
+#For Software
+alias v='nvim'
+alias nv='neovide'
+alias nvchad='NVIM_APPNAME=nvchad nvim'
+alias parui='paru -S'
+alias yayi='yay -S'
+
+
+#For git
+alias gaa='git add .'
+alias ga='git add'
+alias gcmt='git commit -m'
+alias gpush='git push -u origin'
+alias gs='git status'
+alias gc='git clone'
+alias gch='git checkout'
+
+
+#Others(Tmux)
+alias tx='tmux -2'

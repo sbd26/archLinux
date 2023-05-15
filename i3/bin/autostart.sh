@@ -1,14 +1,12 @@
-killall -9 picom python3 polybar dunst
-# killall -9 picom
-picom --config $HOME/.config/picom/picom.conf &
+killall -9 picom python3 polybar dunst cava 
 dunst -config $HOME/.config/i3/dunstrc &
 
-sh /home/bd26/.config/polybar/launch.sh
+picom --config $HOME/.config/i3/picom.conf & #start picom
+# python3 ~/.config/i3/xborder/xborders --config ~/.config/i3/xborder/config.json & #start xborder
+sh /home/bd26/.config/polybar/launch.sh & #start polybar
 
 
-
-python3 ~/.config/i3/xborder/xborders --config ~/.config/i3/xborder/a.json &
-
+#Start Xfce-polkit
 if [[ ! `pidof xfce-polkit` ]]; then
     /usr/lib/xfce-polkit/xfce-polkit &
 fi

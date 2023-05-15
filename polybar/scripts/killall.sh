@@ -1,0 +1,1 @@
+killall telegram-desktop discord

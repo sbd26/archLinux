@@ -7,18 +7,14 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 
-
 #Basic Setting 
 title_align center
 for_window [class=".*"] border pixel 2
-gaps outer     2
-gaps bottom    2
-gaps inner     2
-gaps top       2
-
-
-
-# client.background       #2b3339
+gaps outer     1
+gaps bottom    1
+gaps inner     4
+gaps top       30
+# smart_gaps on
 
 # class                 border  backgr. text    indicator real_border
 
@@ -32,7 +28,6 @@ client.placeholder      #2E3440 #2E3440 #D8DEE9 #a7c080   #2E3440
 # exec --no-startup-id nm-applet
 
 floating_modifier $mod
-
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
@@ -47,7 +42,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id "rofi -show drun"
 
 #--FlameShot
-bindsym shift+Print exec flameshot full -p /home/bd26/Pictures/Screenshoot
+bindsym shift+Print exec flameshot full -p /home/bd26/Pictures/screenshots/
 bindsym Print exec flameshot gui
 
 #--Custom Links
@@ -59,7 +54,7 @@ bindsym $mod+shift+t exec thunar
 
 
 #i3-Lock
-bindsym ctrl+shift+l exec i3lock -i ~/Pictures/WallP/lock.png
+bindsym ctrl+shift+l exec i3lock -i ~/Pictures/OneDark/minimal/od_wave.png
 
 
 # change focus
@@ -182,6 +177,7 @@ assign [class="neovide"]              $ws3
 assign [class="dolphin"]              $ws4
 assign [class="haruna"]               $ws5
 assign [class="qBittorrent"]          $ws7
+assign [class="vlc"]                  $ws7
 
 for_window [class="Xfce4-terminal"] focus
 
@@ -194,7 +190,7 @@ for_window [class="Alafloat|Matplotlib"]    floating        enable
 for_window [class="Onboard|Yad"]            floating        enable
 for_window [class="feh|Viewnior|MPlayer"]   floating        enable
 for_window [class="Thunar"]                 floating        enable 
-for_window [class="Alacritty"]              floating        enable 
+# for_window [class="Alacritty"]              floating        enable 
 
 
 
@@ -221,27 +217,27 @@ bindsym F11 exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle # m
 
 
 #Startup APplication
-exec_always "~/.config/i3/autostart.sh"
+exec_always "~/.config/i3/bin/autostart.sh"
 exec_always --no-startup-id nitrogen --restore
-# exec_always --no-startup-id qbittorrent
+exec_always --no-startup-id qbittorrent
 
 
 #bar
-bar {
-        	colors {
-        background #10111C
-        statusline #00CED1
-        separator  #2faf49
-
-
-	#window		   #border #background          #textcolor
-        focused_workspace  #8c30e7 #303ae7              #fab666
-        active_workspace   #333333 #5f676a 		#ffffff
-        inactive_workspace #333333 #222222 		#888888
-        urgent_workspace   #2f343a #900000 		#ffffff
-        binding_mode       #2f343a #900000 		#ffffff
-    }
-        separator_symbol "."
-        position top
-        status_command i3status -c ~/.config/i3/i3status.conf
-}
+# bar {
+#         colors {
+#         background #10111C
+#         statusline #00CED1
+#         separator  #00CED1
+#
+#
+# 	      #window		         #border #background #textcolor
+#         focused_workspace  #FF0  #303ae7    #fab666
+#         active_workspace   #333333 #5f676a 		#ffffff
+#         inactive_workspace #333333 #222222 		#888888
+#         urgent_workspace   #2f343a #900000 		#ffffff
+#         binding_mode       #2f343a #900000 		#ffffff
+#     }
+#         separator_symbol "|"
+#         position bottom
+#         status_command i3status -c ~/.config/i3/i3status.conf
+# }
